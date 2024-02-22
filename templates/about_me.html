@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}O mnie{% endblock %}
+
+{% block content %}
+
+<div class="container my-5">
+    <div class="row p-5 pe-lg-0 pt-lg-5 rounded-3 shadow-lg bg-success-subtle g-0">
+        <div class="col-lg-4 col-sm-12 p-0 mb-sm-3 overflow-hidden shadow-img rounded-3">
+            <img class="img-about-page" src="../static/images/profile_img3.jpg" alt="Zdjęcie profilowe" width="620">
+        </div>
+
+        <div class="col-lg-7 col-sm-10 offset-lg-1 mx-5 me-0">
+            <h3 class="display-6 fw-bold mb-3">O mnie</h3>
+
+            <p class="wrap">
+                Przez ostatnie kilka lat byłem <strong>Ekspertem ds. Obsługi Klienta</strong> jednego z krajowych
+                operatorów telekomunikacyjnych. Choć podczas swojej pracy zajmowałem się różnymi aspektami, to
+                moim głównym zadaniem było rozwiązywanie problemów technicznych związanych z działaniem usług oraz
+                serwisem do zarządzania numerami.
+            </p>
+
+            <p class="wrap">
+                Jakiś czas temu dotarło do mnie, że praca w obsłudze klienta nie jest tym, co chciałbym robić w życiu i
+                postanowiłem zmienić branżę na taką, która będzie dawała mi satysfakcję i możliwości rozwoju,
+                czego bardzo mi brakowało.
+            </p>
+
+            <p class="wrap">
+                Programowanie jest czymś, co od dawna w jakimś stopniu było częścią mojego życia — czy to podczas
+                studiów na kierunku <strong>Informatyka i Ekonometria</strong>,
+                kursu <strong>Technika Informatyka</strong> w szkole policealnej, czy również w życiu prywatnym,
+                gdzie hobbystycznie pomagałem znajomym i rodzinie, jednocześnie rozwijając swoje umiejętności.
+            </p>
+
+            <p class="wrap">
+                W końcu nastał czas, gdy zebrałem się na odwagę i postanowiłem postawić wszystko na jedną kartę — chcę
+                spróbować swoich sił jako programista języka <strong>Python</strong>.
+                Ukończyłem kursy, które dały mi solidne podstawy oraz zdałem egzamin
+                <a href="../static/images/certificates/certificate - PCEP-30-02.jpg" class="text-dark">
+                    <strong>PCEP-30-02</strong>
+                </a>
+                potwierdzający moje umiejętności.
+            </p>
+
+            <p class="wrap">
+                Prywatnie jestem zapalonym fanem gier strategicznych i karcianych, uwielbiam gotować (jestem
+                szczególnie zakochany w kuchni włoskiej), a w wolnym czasie oddaje się polowaniu na bursztyny.
+            </p>
+
+            <p class="wrap">
+                Jeśli zainteresowała cię moja osoba i projekty, zapraszam do
+                <a href="{{ url_for('contact_me') }}" class="text-dark">
+                    kontaktu
+                </a>
+                — z przyjemnością prześlę moje CV i porozmawiam. Jestem otwarty na każdą pracę, która da mi rozwój
+                w branży programistycznej i gotów by zacząć ją choćby i od zaraz.
+            </p>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

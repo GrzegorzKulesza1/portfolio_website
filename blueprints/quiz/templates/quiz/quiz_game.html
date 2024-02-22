@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block title %}Quiz - pytania{% endblock %}
+
+{% block content %}
+
+<div class="container my-5">
+    <div class="px-1 py-5 text-center rounded-3 bg-success-subtle shadow-lg">
+
+        {% if request.method == "GET" %} <!-- Questions -->
+            <form method="POST">
+                <div class="d-flex pt-3 pb-4 justify-content-center">
+                    <div class="list-group mx-lg-5 mx-md-2 mx-sm-0">
+                        {% for question in all_questions %}
+                            <div class="my-2">
+                                <h3 style="text-wrap: balance;">{{question.text}}</h3>
+                                <ul class="list-group list-unstyled">
+                                    <li>
+                                        {% for answer in question.answers %}
+                                            <label class="list-group-item d-flex gap-2 bg-light">
+                                                <input class="form-check-input flex-shrink-0"
+                                                       type="radio" name="question-{{question.id}}"
+                                                       id="{{answer}}"
+                                                       value="{{answer}}"
+                                                       required>
+                                                <span>{{answer}}</span>
+                                            </label>
+                                        {% endfor %}
+                                    </li>
+                                </ul>
+                            </div>
+                        {% endfor %}
+                        <input type="submit" id="button" class="btn btn-success mx-auto" value="Wyślij">
+                    </div>
+                </div>
+            </form>
+
+        {% else %} <!-- Answers and result -->
+            <h1><strong>Twój wynik to: {{score}}/{{ all_questions|length }}</strong></h1>
+            <div class="d-flex pt-3 pb-4 justify-content-center">
+                <div class="list-group mx-lg-5 mx-md-2 mx-sm-0">
+                    {% for question in all_questions %}
+                        <div class="my-2">
+                            <h3 style="text-wrap: balance;">{{question.text}}</h3>
+                            {% set index = loop.index0 %} <!--Temporary variable to verify if the user's response
+                                                              refers to the question the loop is currently going
+                                                              through-->
+                            <ul class="list-group">
+                                {% for answer in question.answers %}
+                                    {% if answer == question.right_answer %} <!-- Correct answers marked in green-->
+                                        <li class="list-group-item d-flex gap-2 bg-success">
+                                            <span>{{answer}}</span>
+                                        </li>
+                                    {% elif answer in choices[index] %} <!-- Incorrect answers marked in red -->
+                                        <li class="list-group-item d-flex gap-2 bg-danger">
+                                            <span>{{answer}}</span>
+                                        </li>
+                                    {% else %} <!-- The remaining answers are marked in white -->
+                                        <li class="list-group-item d-flex gap-2 bg-light">
+                                            <span>{{answer}}</span>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+                    {% endfor %}
+
+                    <div class="container my-0">
+                        <a class="btn btn-success mx-auto" href="{{url_for('quiz_project.quiz_page')}}">
+                            Zagraj ponownie
+                        </a>
+                        <a class="btn btn-secondary mx-auto" href="{{url_for('main_page')}}">
+                            Powrót
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

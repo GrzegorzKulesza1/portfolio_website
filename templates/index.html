@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+{% block title %}Portfolio{% endblock %}
+
+{% block content %}
+<!--First section-->
+<div class="bg-success-subtle mb-0">
+    <div class="container my-5">
+        <div class="row px-5 pb-0 pe-lg-0 align-items-center rounded-3 shadow-lg">
+            <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+                <h1 class="display-5 fw-bold lh-1">Grzegorz Kulesza</h1>
+                <p class="lead">
+                    Cześć! Bardzo mi miło, że tu jesteś. Na tej stronie chciałbym zaprezentować swoją próbkę
+                    umiejętności i jednocześnie trochę więcej o sobie opowiedzieć (zakładka "O mnie"). Rozgość się!
+                </p>
+            </div>
+
+            <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-img text-center round-corner">
+                <img class="img-main-page round-corner" src="../static/images/profile_img2.jpg"
+                     alt="Zdjęcie profilowe" width="620">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Second section -->
+<div class="container my-4">
+    <h2 class="text-center display-5 fw-bold">Moje przykładowe projekty</h2>
+    <hr>
+
+    <div class="row">
+        <div class="col-md-7 order-md-2 text-center m-auto">
+            <h3>Bursztyny</h3>
+            <p class="lead">
+                Program wykorzystuje dane pobrane za pomocą API. Sprawdza, czy wiatr ma odpowiednią siłę
+                i kierunek, aby morze wyrzucało bursztyny na plażę.
+            </p>
+        </div>
+        <div class="col-md-4 px-0 m-auto border-0 overflow-hidden card card-hoover">
+            <a href="{{ url_for('amber_project.amber_page') }}">
+                <img class="img-fluid w-100 h-100" src="../static/images/amber_img.jpg" alt="Zdjęcie bursztynu">
+            </a>
+        </div>
+    </div>
+    <hr>
+
+    <div class="row">
+        <div class="col-md-7 text-center m-auto">
+            <h3>Quiz</h3>
+            <p class="lead">
+                Sprawdź swoją wiedzę w jednej z 4 kategorii. Program losuje pytania z przygotowanej wcześniej bazy.
+            </p>
+        </div>
+        <div class="col-md-4 px-0 m-auto border-0 overflow-hidden card card-hoover">
+            <a href="{{ url_for('quiz_project.quiz_page') }}">
+                <img class="img-fluid w-100 h-100" src="../static/images/quiz_img.png" alt="Ikona Quizu">
+            </a>
+        </div>
+    </div>
+    <hr>
+
+    <div class="row">
+        <div class="col-md-7 order-md-2 text-center m-auto">
+            <h3>Lista rzeczy do zrobienia</h3>
+            <p class="lead">
+                Przygotuj swoją własną listę zadań. Możesz zapisać ją w bazie danych i wczytać ponownie później.
+            </p>
+        </div>
+        <div class="col-md-4 px-0 m-auto border-0 overflow-hidden card card-hoover">
+            <a href="{{ url_for('todo_list.main_page') }}">
+                <img class="img-fluid w-100 h-100" src="../static/images/todo_img.png"
+                     alt="Ikona listy rzeczy do zrobienia">
+            </a>
+        </div>
+    </div>
+    <hr>
+
+    <div class="row">
+        <div class="col-md-7 text-center m-auto">
+            <h3>GitHub</h3>
+            <p class="lead">
+                Inne moje projekty znajdziesz na GitHubie.
+            </p>
+        </div>
+        <div class="col-md-4 px-0 m-auto text-center border-0 overflow-hidden card card-hoover bg-light">
+            <a href="https://github.com/GrzegorzKulesza1">
+                <img class="img-fluid h-100" src="../static/images/github-mark.png" alt="Ikona GitHub">
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Third section -->
+<div class="bg-success-subtle">
+    <div class="container pb-3">
+        <h2 class="text-center my-4 display-5 fw-bold">Certyfikaty</h2>
+        <hr>
+
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 align-items-stretch g-3">
+            <div class="col">
+                <div class="h-100 overflow-hidden rounded-4 shadow-lg">
+                    <a href="../static/images/certificates/certificate - PCEP-30-02.jpg">
+                        <img class="certificate_img img-fluid h-100"
+                             src="../static/images/certificates/certificate - PCEP-30-02.jpg"
+                             alt="Certyfikat zdania egzaminu PCEP-30-02">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="h-100 overflow-hidden rounded-4 shadow-lg">
+                    <a href="../static/images/certificates/certificate - course PCEP-30-02.jpg">
+                        <img class="certificate_img img-fluid h-100"
+                             src="../static/images/certificates/certificate - course PCEP-30-02.jpg"
+                             alt="Certyfikat ukończenia kursu przygotowującego do egzaminu PCEP-30-02">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="h-100 overflow-hidden rounded-4 shadow-lg">
+                    <a href="../static/images/certificates/certificate - 100 days of code.jpg">
+                        <img class="certificate_img img-fluid h-100"
+                             src="../static/images/certificates/certificate - 100 days of code.jpg"
+                             alt="Certyfikat ukończenia kursu 100 Days of Code: The Complete Python Pro Bootcamp for
+                             2023">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="h-100 overflow-hidden rounded-4 shadow-lg">
+                    <a href="../static/images/certificates/certificate - kaggle.png">
+                        <img class="certificate_img img-fluid h-100"
+                             src="../static/images/certificates/certificate - kaggle.png"
+                             alt="Certyfikat ukończenia kursu kaggle Python">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="h-100 overflow-hidden rounded-4 shadow-lg">
+                    <a href="../static/images/certificates/certificate - manual tester.jpg">
+                        <img class="certificate_img img-fluid h-100"
+                             src="../static/images/certificates/certificate - manual tester.jpg"
+                             alt="Certyfikat ukończenia kursu Podstawy manualnego testowania oprogramowania">
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Wczytaj listę{% endblock %}
+
+{% block content %}
+
+<div class="container my-5">
+    <div class="px-1 py-5 text-center rounded-3 bg-success-subtle shadow-lg">
+        <img src="../static/images/upload_icon.png" alt="Ikona wczytywania" width="150" height="150"
+             class="my-3 rounded-4">
+
+        <div class="col-lg-6 col-md-10 mx-auto">
+            <!-- Input to enter the name of a previously saved user list. -->
+            <form action="{{ url_for('todo_list.upload_list') }}" method="post" class="px-4 px-md-5 mt-1 mb-4">
+                <div class="mb-2">
+                    <p class="text-body">
+                        Wprowadź pełną nazwę swojej listy, razem z jej unikalnym numerem, w odpowiednim formacie, np.
+                        <span class="fst-italic">Lista#1234</span>
+                    </p>
+
+                    <!-- Flash message displayed if the list name provided by the user is not in the database. -->
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <p class="text-danger">
+                                    Listy <span class="fst-italic">{{message}}</span> nie ma w bazie danych. Spróbuj
+                                    ponownie. <br> Pamiętaj, że nazwa listy składa się z <strong>twojej nazwy</strong>,
+                                    <strong>znaku #</strong> oraz <strong>czterech cyfr.</strong>
+                                </p>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+
+                    <input type="text"
+                           class="form-control"
+                           name="list_name"
+                           placeholder="Pełna nazwa Twojej listy"
+                           maxlength="250"
+                           pattern=".*\S+.*"
+                           title="Pełna nazwa Twojej listy"
+                           required autofocus>
+                </div>
+                <button type="submit" class="w-100 btn btn-lg btn-success">
+                    Wczytaj listę
+                </button>
+                <a href="{{url_for('todo_list.main_page')}}" class="button w-100 btn btn-lg btn-secondary mt-1">
+                    Powrót
+                </a>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

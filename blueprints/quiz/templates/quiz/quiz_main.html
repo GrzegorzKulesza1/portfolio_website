@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Quiz{% endblock %}
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+
+<div class="container my-5">
+    <div class="px-1 py-5 text-center rounded-3 bg-success-subtle shadow-lg">
+        <img src="../static/images/quiz_img2.png" alt="Ikona Quizu" width="150" height="150" class="my-3 rounded-4">
+        <h3>Wybierz parametry startowe</h3>
+
+        <!--A form created from the QuizForm class.-->
+        <div class="d-inline-flex mb-4">
+            {{ wtf.quick_form(form, extra_classes="col-form-label-lg", button_map={"submit": "success mt-2"}) }}
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}Bursztyny{% endblock %}
+
+{% block content %}
+
+<div class="container my-5">
+
+    {% if direction %} <!-- Displays if the weather is good -->
+        <div class="px-1 py-5 text-center rounded-3 bg-success-subtle shadow-lg">
+            <img src="../static/images/amber_img2.jpg" alt="Zdjęcie bursztynu" width="150" height="150"
+                 class="my-3 rounded-4">
+            <h1 class="text-body-emphasis">{{city}}</h1>
+            <h4>Dziś wieje dobry wiatr na bursztyny</h4>
+            <p class="col-lg-8 mx-auto fs-6 my-2">W najbliższych dniach morze będzie wyrzucać bursztyny na plażę</p>
+
+    {% else %} <!-- Displays if the weather is bad -->
+        <div class="px-1 py-5 text-center rounded-3 bg-danger-subtle shadow-lg">
+            <img src="../static/images/amber_img2.jpg" alt="Zdjęcie bursztynu" width="150" height="150"
+                 class="my-3 rounded-4">
+            <h1 class="text-body-emphasis">{{city}}</h1>
+            <h4>Dziś nie ma dobrego wiatru na bursztyny</h4>
+            {% if is_strong %}
+                <p class="col-lg-8 mx-auto fs-6 my-2">Wiatr ma zły kierunek, aby morze wyrzucało bursztyny na plażę</p>
+            {% else %}
+                <p class="col-lg-8 mx-auto fs-6 my-2">Wiatr wieje za słabo, aby morze wyrzucało bursztyny na plażę</p>
+            {% endif %}
+    {% endif %}
+            <p class="col-lg-8 mx-auto fs-6 my-2">Średnia prędkość wiatru: <strong>{{speed}} km/h</strong>.</p>
+            <p class="col-lg-8 mx-auto fs-6 my-2">Średnia temperatura: <strong>{{temperature}} °C</strong></p>
+
+
+            <!-- Buttons to check different locations -->
+            <div class="d-inline-flex my-4">
+                <form action="{{ url_for('amber_project.amber_page') }}" method="post">
+                    <button class="btn btn-outline-success btn-lg px-4 rounded-pill m-1" type="submit" name="location"
+                            value="Wyspa Sobieszewska">
+                        Wyspa Sobieszewska
+                    </button>
+                    <button class="btn btn-outline-success btn-lg px-4 rounded-pill m-1" type="submit" name="location"
+                            value="Jantar">
+                        Jantar
+                    </button>
+                    <button class="btn btn-outline-success btn-lg px-4 rounded-pill m-1" type="submit" name="location"
+                            value="Gdańsk">
+                        Gdańsk
+                    </button>
+                    <button class="btn btn-outline-success btn-lg px-4 rounded-pill m-1" type="submit" name="location"
+                            value="Ustka">
+                        Ustka
+                    </button>
+                    <button class="btn btn-outline-success btn-lg px-4 rounded-pill m-1" type="submit" name="location"
+                            value="Hel">
+                        Hel
+                    </button>
+                </form>
+            </div>
+
+        </div>
+        </div>
+</div>
+
+{% endblock %}
