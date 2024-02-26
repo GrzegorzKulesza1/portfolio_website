@@ -2,6 +2,8 @@
 
 This is my personal website created in Python using the Flask framework. For the website style I mainly used Bootstrap.
 
+The live version of the website can be viewed at: [www.grzegorz-kulesza.pl](https://www.grzegorz-kulesza.pl)
+
 ## Technologies Used
 * **Flask:** The web framework used to build the application.
 * **Jinja:** The templating engine integrated with Flask for dynamic content rendering.
